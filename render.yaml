@@ -2,7 +2,7 @@ services:
   - type: web
     name: go-news-site
     runtime: go
-    repo: https://github.com/YOUR_USERNAME/go-news-site-production
+    repo: https://github.com/vladimir-smirnov-fin/news-website-golang
     plan: free
     buildCommand: go build -o main
     startCommand: ./main

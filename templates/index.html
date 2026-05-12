@@ -1,0 +1,39 @@
+{{ define "index" }}
+
+{{ template "header" . }}
+
+<br><br>
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">News website</h1>
+  <h2>Go learning project</h2><br>
+  
+  {{ template "flash-messages" . }}
+  
+  {{ if .IsAuth }}
+    <p class="lead font-weight-bold">Welcome, {{ .UserName }}!</p><br>
+    <p class="lead">
+      <a href="/create" class="btn btn-lg btn-success">Write article</a>
+    </p><br>
+  {{ else }}
+    <p class="lead">Want to write an article? <a href="/registration" class="text-info font-weight-normal">Register</a> on the site</p>
+    <p class="lead">Already have an account? <a href="/auth" class="text-info font-weight-normal">Login</a></p><br>
+  {{ end }}
+
+  <h3 class="cover-heading">Site articles</h3><br>
+
+  {{ range .Articles }}
+  <div class="alert alert-dark">
+    <h2>{{ .Title }}</h2>
+    <p>{{ .Anons }}</p>
+    <p>Author: {{ .AuthorName }}</p>
+    <a href="/article/{{ .Id }}" class="btn btn-dark">Read more</a>
+  </div>
+  {{ else }}
+  <p class="lead">No articles yet. Be the first to add an article!</p>
+  {{ end }}
+  
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

@@ -1,0 +1,11 @@
+{{ define "flash-messages" }}
+  {{ if .FlashMsg }}
+    <div class="alert alert-{{ if eq .FlashType "success" }}success{{ else }}danger{{ end }} alert-dismissible fade show" role="alert">
+      {{ .FlashMsg }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <br>
+  {{ end }}
+{{ end }}

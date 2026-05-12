@@ -1,0 +1,21 @@
+{{ define "auth" }}
+
+{{ template "header" . }}
+
+<br><br>
+
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">Authorization</h1><br>
+  
+  {{ template "flash-messages" . }}
+  
+  <form action="/auth-user" method="post">
+    <input type="email" name="email" id="email" placeholder="Enter email" class="form-control" value="{{ .FormEmail }}"><br>
+    <input type="password" name="pass" id="pass" placeholder="Enter password" class="form-control"><br>
+    <button class="btn btn-info" type="submit">Login</button>
+  </form>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

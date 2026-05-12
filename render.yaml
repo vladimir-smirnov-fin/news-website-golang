@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: go-news-site
+    runtime: go
+    repo: https://github.com/YOUR_USERNAME/go-news-site-production
+    plan: free
+    buildCommand: go build -o main
+    startCommand: ./main
+    envVars:
+      - key: PORT
+        value: 8080
+      - key: DATABASE_URL
+        fromDatabase:
+          name: go-news-db
+          property: connectionString
+
+databases:
+  - name: go-news-db
+    plan: free

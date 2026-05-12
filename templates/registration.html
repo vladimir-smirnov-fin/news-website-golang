@@ -1,0 +1,23 @@
+{{ define "registration" }}
+
+{{ template "header" . }}
+
+<br><br>
+
+<main role="main" class="inner cover">
+  <h1 class="cover-heading">Registration</h1><br>
+  
+  {{ template "flash-messages" . }}
+  
+  <form action="/add-user" method="post">
+    <input type="text" name="name" id="name" placeholder="Enter name" class="form-control" value="{{ .FormName }}"><br>
+    <input type="email" name="email" id="email" placeholder="Enter email" class="form-control" value="{{ .FormEmail }}"><br>
+    <input type="password" name="pass_1" id="pass_1" placeholder="Enter password" class="form-control"><br>
+    <input type="password" name="pass_2" id="pass_2" placeholder="Confirm password" class="form-control"><br>
+    <button class="btn btn-info" type="submit">Register</button>
+  </form>
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

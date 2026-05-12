@@ -1,0 +1,36 @@
+// This template handles both article creation and editing
+
+{{ define "create-edit" }}
+
+{{ template "header" . }}
+
+<br><br>
+<main role="main" class="inner cover">
+  {{ if .Article.Id }}
+    <h1 class="cover-heading">Edit Article Form</h1><br>
+  {{ else }}
+    <h1 class="cover-heading">Add Article Form</h1><br>
+  {{ end }}
+  
+  {{ template "flash-messages" . }}
+  
+  {{ if .Article.Id }}
+    <form action="/article/{{ .Article.Id }}/edit" method="post">
+      <input type="text" name="title" id="title" placeholder="Enter article title" class="form-control" value="{{ .Article.Title }}"><br>
+      <textarea name="anons" id="anons" class="form-control" placeholder="Enter article summary">{{ .Article.Anons }}</textarea><br>
+      <textarea name="full_text" id="full_text" class="form-control" placeholder="Enter article text">{{ .Article.FullText }}</textarea><br>
+      <button class="btn btn-warning" type="submit">Save changes</button>
+    </form>
+  {{ else }}
+    <form action="/create-article" method="post">
+      <input type="text" name="title" id="title" placeholder="Enter article title" class="form-control" value="{{ .FormTitle }}"><br>
+      <textarea name="anons" id="anons" class="form-control" placeholder="Enter article summary">{{ .FormAnons }}</textarea><br>
+      <textarea name="full_text" id="full_text" class="form-control" placeholder="Enter article text">{{ .FormText }}</textarea><br>
+      <button class="btn btn-warning" type="submit">Add</button>
+    </form>
+  {{ end }}
+</main>
+
+{{ template "footer" }}
+
+{{ end }}

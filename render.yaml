@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: go-news-site
+    name: vladimir-smirnov-news-website-golang
     runtime: go
     repo: https://github.com/vladimir-smirnov-fin/news-website-golang
     plan: free

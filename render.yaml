@@ -9,5 +9,5 @@ services:
     envVars:
       - key: PORT
         value: 8080
-      # DATABASE_URL will be added manually in Render dashboard, not in this file
+      # DATABASE_URL will be added manually in Render dashboard (not in this file)
       # neon.tech (PostgreSQL database)
